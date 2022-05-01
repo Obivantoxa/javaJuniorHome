@@ -31,13 +31,47 @@ public class StringUtilsIpls implements StringUtils {
     }
 
 
-
-
-
     @Override
     public int[] findWord(String text, String word) throws NullPointerException {
-        return new int[0];
+
+        String[] textMassiv = text.split(" ");
+        int countWord = 0;
+        int[] indexOfWord = new int[textMassiv.length];
+
+        for (int i = 0; i < textMassiv.length; i++) {
+            if (textMassiv[i].equalsIgnoreCase(word)) {
+                countWord++;
+                indexOfWord[countWord - 1] = i + 1;
+                System.out.println(" Cовпадение  в слове под номером - " + (i + 1));
+            }
+        }
+
+
+        if (countWord == 0) {
+            System.out.println(" Нет такого слова!!! ");
+            return new int[0];
+        }
+
+
+        int[] indexOfWordFormatted = new int[countWord];
+
+
+        for (int i = 0; i < indexOfWord.length; i++) {
+
+            for (int k = 0; k < indexOfWordFormatted.length; k++) {
+
+                if (indexOfWord[i] != 0 && indexOfWordFormatted[k] == 0) {
+                    indexOfWordFormatted[k] = indexOfWord[i];
+                    k = indexOfWordFormatted.length;
+                }
+
+            }
+
+        }
+
+        return indexOfWordFormatted;
     }
+
 
     @Override
     public double[] findNumbers(String text) throws CustomException {
@@ -46,6 +80,11 @@ public class StringUtilsIpls implements StringUtils {
         Matcher matcher = Pattern.compile(regularExpressionForDouble).matcher(text);
         while (matcher.find()) {
             System.out.println(matcher.group());
+
             return new double[0];
         }
+        return new double[0];
     }
+}
+
+

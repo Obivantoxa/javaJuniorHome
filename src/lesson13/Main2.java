@@ -20,6 +20,7 @@ public class Main2  {
         b.add(6);
 
         CollectionUtilsImps utills = new CollectionUtilsImps();
+
         System.out.println(utills.union(a,b));
         System.out.println(utills.intersection(a,b));
 
