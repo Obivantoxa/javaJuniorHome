@@ -25,12 +25,14 @@ public class Matrix implements IMatrix {
     @Override
     public double getValueAt(int rowIndex, int colIndex) throws IndexOutOfBoundsException {
         if (rowIndex >= this.getRows() || rowIndex < 0) {
-            System.out.println("sds " + rowIndex);
-            return -1;
+            throw new IndexOutOfBoundsException("Неверный индекс строки!! " + rowIndex);
+            //System.out.println("sds " + rowIndex);
+            //return -1;
         }
         if (colIndex >= this.getColumns() || colIndex < 0) {
-            System.out.println("ddf " + colIndex);
-            return -1;
+            throw new IndexOutOfBoundsException("Неверный индекс строоки!! " + colIndex);
+            //System.out.println("ddf " + colIndex);
+            //return -1;
         }
         return matrix[rowIndex][colIndex];
     }
@@ -38,12 +40,14 @@ public class Matrix implements IMatrix {
     @Override
     public void setValueAt(int rowIndex, int colIndex, double value) throws IndexOutOfBoundsException {
         if (rowIndex >= this.getRows() || rowIndex < 0) {
-            System.out.println("sds " + rowIndex);
-            return;
+            throw new IndexOutOfBoundsException("Неверный индекс строки!! " + rowIndex);
+            //System.out.println("sds " + rowIndex);
+            // return;
         }
         if (colIndex >= this.getColumns() || colIndex < 0) {
-            System.out.println("ddf " + colIndex);
-            return;
+            throw new IndexOutOfBoundsException("Неверный индекс строоки!! " + colIndex);
+            //System.out.println("ddf " + colIndex);
+            //return;
         }
         matrix[rowIndex][colIndex] = value;
     }
@@ -51,14 +55,16 @@ public class Matrix implements IMatrix {
     @Override
     public IMatrix add(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
         if (this.getRows() != otherMatrix.getRows()) {
-            System.out.println("Кол-во строк не совпадает!!!");
-            return null;
+            throw new IllegalArgumentException("Кол-во строк не совпадает!!!");
+            //System.out.println("Кол-во строк не совпадает!!!");
+            //return null;
+        }
+        if (this.getColumns() != otherMatrix.getColumns()) {
+            throw new IllegalArgumentException("Кол-во колонок не совпадает!!!");
+            //System.out.println("Кол-во колонок не совпадает!!!");
+            //return null;
+        }
 
-        }
-        if (this.getColumns() != otherMatrix.getColumns()){
-            System.out.println("Кол-во колонок не совпадает!!!");
-            return null;
-        }
         IMatrix result = new Matrix(this.getRows(), this.getColumns());
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < this.getColumns(); j++) {
@@ -75,7 +81,7 @@ public class Matrix implements IMatrix {
             return null;
 
         }
-        if (this.getColumns() != otherMatrix.getColumns()){
+        if (this.getColumns() != otherMatrix.getColumns()) {
             System.out.println("Кол-во колонок не совпадает!!!");
             return null;
         }
