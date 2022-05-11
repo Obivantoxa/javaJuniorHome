@@ -5,7 +5,7 @@ public class LocalInnerClass {
 
 
     public void delenie(int a, int b){
-        int aa =10;
+
         class Delenie{
             int delitel;
             int delimoe;
@@ -16,7 +16,7 @@ public class LocalInnerClass {
             }
             public void devision(){
                 System.out.println(delimoe/delitel);
-                System.out.println(aa);
+
 
             }
             public void ostatok(){
