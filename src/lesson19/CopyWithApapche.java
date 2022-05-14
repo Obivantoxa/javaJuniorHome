@@ -1,3 +1,4 @@
+/*
 package lesson19;
 
 import org.apache.commons.io.FileUtils;
@@ -12,9 +13,10 @@ public class CopyWithApapche implements CopyUtils{
         File toFile = new File(to);
 
         try {
-            FileUtils.copyFile(fromFile, toFile);
+            //FileUtils.copyFile(fromFile, toFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
+*/
