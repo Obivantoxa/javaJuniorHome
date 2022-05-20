@@ -55,12 +55,12 @@ public class FunctionEx {
 //                .filter(s->s.getAge() > 25)
 //                .map(s->s.getCourse())
 //                .forEach(course -> System.out.println(course));
-//         students
-//                .stream()
-//                .filter(s -> s.getAge() > 25)
-//                .map(s -> s.getCourse())
-//                .reduce((acc, i) -> acc + i)
-//                .ifPresent(i -> System.out.println(i));
+         students
+                .stream()
+                .filter(s -> s.getAge() > 25)
+                .map(s -> s.getCourse())
+                .reduce((acc, i) -> acc + i)
+                .ifPresent(i -> System.out.println(i));
 
         //if (reduce.isPresent()) System.out.println(reduce);
         //reduce.orElseThrow(()-> new NoSuchElementException());
@@ -80,16 +80,16 @@ public class FunctionEx {
 //                .sorted((s1,s2) -> s1.getFirstName().compareTo(s2.getFirstName()))
 //                .forEach(s -> System.out.println(s));
 
-        students.stream()
-                .sorted(Comparator
-                        .comparing(Student::getFirstName)
-                        .thenComparing(Student::getAge)
-                        .thenComparing(Student::getCourse)
-                                .reversed())
+//        students.stream()
+//                .sorted(Comparator
+//                        .comparing(Student::getFirstName)
+//                        .thenComparing(Student::getAge)
+//                        .thenComparing(Student::getCourse)
+//                                .reversed())
 
 
                 //.sorted((s1,s2) -> s1.getFirstName().compareTo(s2.getFirstName()))
-                .forEach(System.out::println);
+//                .forEach(System.out::println);
 
       //  Stream.of("sd")
 
